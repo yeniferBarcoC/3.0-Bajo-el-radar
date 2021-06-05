@@ -1,7 +1,7 @@
 """ Modulo Multas
     Funciones para el cálculo de multas
     de tránsito 
-    Oscar Franco-Bedoya
+    Yenifer Barco Castrillón
     Mayo 10-2021 """
 # Definición de Funciones
 #======================================================================
@@ -27,22 +27,22 @@ def multar_velocidad(distancia_uno, distancia_dos,tiempo):
     dist_km_dos = distancia_dos/100
 
     #Conversion de segundos a horas
-    tiempo_horas = tiempo*3600
+    tiempo_horas = tiempo/3600
 
     #Calcular espacio
     espacio = dist_km_dos - dist_km_uno
 
     #Calcular velocidad
     velocidad = espacio/tiempo_horas
-
-    if 1>=velocidad>=20:
+    print("\nVelocidad actal: ",velocidad)
+    if velocidad>=1 and velocidad<=20:
         texto_multa="Llamada de atención por baja velocidad"
-    elif 21>=velocidad>=60:
+    elif velocidad>=21 and velocidad<=60:
         texto_multa="Normal"
-    elif 61>=velocidad>=80:
+    elif velocidad>=61 and velocidad<=80:
         texto_multa="Llamado de atención por alta velocidad"
-    elif 81>=velocidad>=120:
-        texto_multa="multa tipo I"
+    elif velocidad>=81 and velocidad<=120:
+        texto_multa="Multa tipo I"
     elif velocidad>120:
         texto_multa="Multa tipo II e inmovilización de vehículo"
     else:
@@ -62,11 +62,11 @@ def multar_alcoholemia(grado_alcohol):
         enunciado de la multa de alcoholemia
     """ 
     if grado_alcohol>0:
-        if 20>=grado_alcohol>=39:
+        if grado_alcohol>=20 and grado_alcohol<=39:
             texto_multa="Además de las sanciones previstas en la presente ley, se decretará la suspensión de la licencia de conducción entre seis (6) y doce (12) meses."
-        elif 40>=grado_alcohol>=99:
+        elif grado_alcohol>=40 and grado_alcohol<=99:
             texto_multa="Primer grado de embriaguez: se decretará la suspensión de la Licencia de Conducción entre uno (1) y tres (3) años."
-        elif 100>=grado_alcohol>=149:
+        elif grado_alcohol>=100 and grado_alcohol<=149:
             texto_multa="Segundo grado de embriaguez: se decretará la suspensión de la Licencia de Conducción entre tres (3) y cinco (5) años, y la obligación de realizar curso de sensibilización, conocimientos y consecuencias de la alcoholemia y drogadicción en centros de rehabilitación debidamente autorizados, por un mínimo de cuarenta (40) horas."
         elif grado_alcohol>=150:
             texto_multa="Tercer grado de embriaguez: se decretará la suspensión entre cinco (5) y diez (10) años de la Licencia de Conducción, y la obligación de realizar curso de sensibilización, conocimientos y consecuencias de la alcoholemia y drogadicción en centros de rehabilitación debidamente autorizados, por un mínimo de ochenta (80) horas."
